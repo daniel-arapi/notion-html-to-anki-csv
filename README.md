@@ -38,3 +38,67 @@ router eigrp 100<br/>
   variance 2
 </div>
 ```
+
+Usage
+
+Export your Notion database as HTML (not CSV):
+
+In Notion:
+`⋯ menu → Export → Format: HTML`
+
+Save the exported file (e.g., Anki - Network Engineering.html).
+
+Then run:
+
+```
+notion2anki "Anki - Network Engineering.html" "anki_cards.csv"
+```
+
+You’ll see:
+
+✅ Converted Anki - Network Engineering.html → anki_cards.csv
+
+
+You can also use it programmatically:
+
+```
+from notion2anki.converter import convert_file
+
+convert_file("input.html", "output.csv")
+```
+
+
+Import into Anki
+
+Open Anki
+
+File → Import
+
+Select anki_cards.csv
+
+Set fields:
+
+Field 1 → Notion-ID
+
+Field 2 → Front
+
+Field 3 → Back
+
+Field 4 → Tags
+
+Ensure "Allow HTML in fields" is enabled for the Back field (card type settings).
+
+Import
+
+
+Development
+
+Install dev dependencies:
+
+pip install -r requirements.txt
+
+
+Run tests:
+
+pytest
+
